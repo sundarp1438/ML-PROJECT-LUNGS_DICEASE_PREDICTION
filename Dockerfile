@@ -1,18 +1,17 @@
-#official Python 3.10 image
-FROM python:3.10
+# Use official Python base image
+FROM python:3.12
 
-#set the working directory 
+# Set the working directory
 WORKDIR /app
 
-#add app.py and models directory
-COPY app.py .
-COPY models/ ./models/
+# Copy files to the container
+COPY . /app
 
-# add requirements file
-COPY requirements.txt .
-
-# install python libraries
+# Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# specify default commands
-CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "80"]
+# Expose API port
+EXPOSE 8000
+
+# Run the FastAPI app
+CMD ["uvicorn", "lung_disease_api:app", "--host", "0.0.0.0", "--port", "8000"]
