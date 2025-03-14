@@ -5,6 +5,9 @@ pipeline {
         PYTHON_VERSION = "3.12"
         VENV_DIR = "venv"
         MLFLOW_TRACKING_URI = "http://127.0.0.1:5000"
+        DOCKER_REGISTRY = "sundarp1985"
+        DOCKER_IMAGE = "lung-disease-api"
+        K8S_NAMESPACE = "mlops"
     }
 
     stages {
@@ -91,13 +94,46 @@ pipeline {
                 }
             }
         }
+
+        stage('Build Docker Image') {
+            steps {
+                script {
+                    echo "🐳 Building Docker image..."
+                    sh "docker build -t ${DOCKER_REGISTRY}/${DOCKER_IMAGE}:latest -f Dockerfile ."
+                }
+            }
+        }
+
+        stage('Push Docker Image') {
+            steps {
+                script {
+                    echo "📤 Pushing Docker image to Docker Hub..."
+                    sh "echo ${DOCKER_PASSWORD} | docker login -u ${DOCKER_USERNAME} --password-stdin"
+                    sh "docker push ${DOCKER_REGISTRY}/${DOCKER_IMAGE}:latest"
+                }
+            }
+        }
+
+        stage('Deploy to Kubernetes') {
+            steps {
+                script {
+                    echo "🚢 Deploying to Kubernetes..."
+                    
+                    sh "kubectl apply -f k8s/deployment.yaml -n ${K8S_NAMESPACE}"
+                    sh "kubectl apply -f k8s/service.yaml -n ${K8S_NAMESPACE}"
+                    
+                    echo "✅ Waiting for deployment to be ready..."
+                    sh "kubectl rollout status deployment/lung-disease-api -n ${K8S_NAMESPACE}"
+                }
+            }
+        }
     }
 
     post {
         success {
             script {
                 echo "✅ Pipeline completed successfully!"
-                // You can add a Slack or email notification here
+                // Slack or email notification can be added here
             }
         }
         failure {
