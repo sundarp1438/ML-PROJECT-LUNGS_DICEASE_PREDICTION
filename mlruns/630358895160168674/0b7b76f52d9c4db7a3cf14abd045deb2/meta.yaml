@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/user/OneDrive%20-%20GTR%20TeK%20LLC/Desktop/MLOPS/Lungs_Prediction/mlruns/630358895160168674/0b7b76f52d9c4db7a3cf14abd045deb2/artifacts
+end_time: 1741968401030
+entry_point_name: ''
+experiment_id: '630358895160168674'
+lifecycle_stage: active
+run_id: 0b7b76f52d9c4db7a3cf14abd045deb2
+run_name: clean-ox-470
+run_uuid: 0b7b76f52d9c4db7a3cf14abd045deb2
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741968400578
+status: 3
+tags: []
+user_id: user

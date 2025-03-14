@@ -1,0 +1,15 @@
+artifact_uri: file:///C:/Users/user/OneDrive%20-%20GTR%20TeK%20LLC/Desktop/MLOPS/Lungs_Prediction/mlruns/606720746765889860/79b10b825f1f48609c26a4b22dac59e7/artifacts
+end_time: 1741966805111
+entry_point_name: ''
+experiment_id: '606720746765889860'
+lifecycle_stage: active
+run_id: 79b10b825f1f48609c26a4b22dac59e7
+run_name: bemused-gull-773
+run_uuid: 79b10b825f1f48609c26a4b22dac59e7
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1741966700146
+status: 3
+tags: []
+user_id: user

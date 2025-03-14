@@ -1,0 +1,14 @@
+aliases: []
+creation_timestamp: 1741967963903
+current_stage: None
+description: ''
+last_updated_timestamp: 1741967963903
+name: Lung Disease Prediction Pipeline
+run_id: 79b10b825f1f48609c26a4b22dac59e7
+run_link: ''
+source: file:///C:/Users/user/OneDrive%20-%20GTR%20TeK%20LLC/Desktop/MLOPS/Lungs_Prediction/mlruns/606720746765889860/79b10b825f1f48609c26a4b22dac59e7/artifacts/model
+status: READY
+status_message: null
+storage_location: file:///C:/Users/user/OneDrive%20-%20GTR%20TeK%20LLC/Desktop/MLOPS/Lungs_Prediction/mlruns/606720746765889860/79b10b825f1f48609c26a4b22dac59e7/artifacts/model
+user_id: null
+version: 1
