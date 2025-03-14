@@ -1,0 +1,20 @@
+base:
+  random_state: 42
+
+data_load:
+  dataset_path: data/raw/lung_disease_data.csv
+
+featurize:
+  processed_path: data/processed/featured_lung_disease_data.csv
+  target_column: Recovered
+
+data_split:
+  test_size: 0.2
+  trainset_path: data/processed/train_lung_disease_data.csv
+  testset_path: data/processed/test_lung_disease_data.csv
+
+train:
+  model_path: models/model.joblib
+
+evaluate:
+  metrics_path: reports/metrics.json
